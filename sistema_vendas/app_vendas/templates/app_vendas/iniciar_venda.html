@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Iniciar Venda</title>
+</head>
+<body>
+    <h1>Iniciar Venda</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="vendedor">Vendedor:</label>
+        <select name="vendedor_id" required>
+            {% for vendedor in vendedores %}
+                <option value="{{ vendedor.id }}">{{ vendedor.nome }}</option>
+            {% endfor %}
+        </select><br>
+        <label for="data">Data:</label>
+        <input type="date" name="data" required><br>
+        <button type="submit">Iniciar Venda</button>
+    </form>
+</body>
+</html>

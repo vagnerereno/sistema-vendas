@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fechar Venda</title>
+</head>
+<body>
+    <h1>Fechar Venda</h1>
+    <h2>Venda ID: {{ venda.id }} - Data: {{ venda.data }}</h2>
+    <h3>Vendedor: {{ venda.vendedor.nome }}</h3>
+    <table border="1">
+        <tr>
+            <th>Produto</th>
+            <th>Quantidade</th>
+            <th>Valor Unitário</th>
+            <th>Subtotal</th>
+        </tr>
+        {% for item in produtos_venda %}
+        <tr>
+            <td>{{ item.produto }}</td>
+            <td>{{ item.quantidade }}</td>
+            <td>{{ item.valor_unitario }}</td>
+            <td>{{ item.subtotal|floatformat:2 }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <h3>Total da Venda: {{ total_venda|floatformat:2 }}</h3>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Fechar Venda</button>
+    </form>
+</body>
+</html>

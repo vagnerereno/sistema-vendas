@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Listar Vendas</title>
+</head>
+<body>
+    <h1>Vendas Ativas</h1>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Data</th>
+            <th>Vendedor</th>
+            <th>Ações</th>
+        </tr>
+        {% for venda in vendas %}
+        <tr>
+            <td>{{ venda.id }}</td>
+            <td>{{ venda.data }}</td>
+            <td>{{ venda.vendedor.nome }}</td>
+            <td>
+                <a href="{% url 'inserir_produto_venda' venda.id %}">Inserir Produtos</a>
+                <a href="{% url 'fechar_venda' venda.id %}">Fechar Venda</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

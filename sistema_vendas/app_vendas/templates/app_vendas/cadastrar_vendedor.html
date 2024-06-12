@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cadastrar Vendedor</title>
+</head>
+<body>
+    <h1>Cadastrar Vendedor</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="nome">Nome:</label>
+        <input type="text" name="nome" required><br>
+        <button type="submit">Cadastrar</button>
+    </form>
+</body>
+</html>
